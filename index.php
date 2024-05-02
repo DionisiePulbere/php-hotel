@@ -66,7 +66,7 @@ permetta di filtrare gli hotel che hanno un parcheggio.
 <section>
     <div class="container mt-5">
         <form method="get">
-            <div class="d-flex">
+            <div class="d-flex align-items-center">
                 <span>Filtri:</span> 
                 <div class="form-check form-switch mx-3">
                     <input class="form-check-input" type="checkbox" role="switch" name="park" id="flexSwitchCheckDefault">
@@ -109,7 +109,7 @@ permetta di filtrare gli hotel che hanno un parcheggio.
                         5
                     </label>
                 </div>
-                <button type="submit">Ricerca</button>
+                <button class="btn btn-primary ms-2" type="submit">Ricerca</button>
             </div>
         </form>
     </div>
