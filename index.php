@@ -50,6 +50,8 @@ permetta di filtrare gli hotel che hanno un parcheggio.
 
     ];
 
+    $star = isset($_GET['star']) ? $_GET['star'] : '';
+    $park = isset($_GET['park']) ? $_GET['park'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +64,56 @@ permetta di filtrare gli hotel che hanno un parcheggio.
 </head>
 <body>
 <section>
-    <div class="container mt-5" >
+    <div class="container mt-5">
+        <form method="get">
+            <div class="d-flex">
+                <span>Filtri:</span> 
+                <div class="form-check form-switch mx-3">
+                    <input class="form-check-input" type="checkbox" role="switch" name="park" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Parcheggio</label>
+                </div>
+                <span>Stelle:</span>
+                <div class="form-check mx-1">
+                    <input class="form-check-input" type="radio" value="" name="star" id="Default" checked>
+                    <label class="form-check-label" for="Default">
+                        N/D
+                    </label>
+                </div>
+                <div class="form-check mx-1">
+                    <input class="form-check-input" type="radio" value="1" name="star" id="onestar">
+                    <label class="form-check-label" for="onestar">
+                        1
+                    </label>
+                </div>
+                <div class="form-check mx-1">
+                    <input class="form-check-input" type="radio" value="2" name="star" id="twostar" >
+                    <label class="form-check-label" for="twostar">
+                        2
+                    </label>
+                </div>
+                <div class="form-check mx-1">
+                    <input class="form-check-input" type="radio" value="3" name="star" id="threestar">
+                    <label class="form-check-label" for="threestar">
+                        3
+                    </label>
+                </div>
+                <div class="form-check mx-1">
+                    <input class="form-check-input" type="radio" value="4" name="star" id="fourstar" >
+                    <label class="form-check-label" for="fourstar">
+                        4
+                    </label>
+                </div>
+                <div class="form-check mx-1">
+                    <input class="form-check-input" type="radio" value="5" name="star" id="fivestar">
+                    <label class="form-check-label" for="fivestar">
+                        5
+                    </label>
+                </div>
+                <button type="submit">Ricerca</button>
+            </div>
+        </form>
+    </div>
+    <div class="container mt-1" >
         <table class="table table-dark table-striped">
         <thead>
             <tr>
@@ -81,13 +132,34 @@ permetta di filtrare gli hotel che hanno un parcheggio.
                 } else {
                     $parking = 'No';
                 }
-               ?> <tr>
-                <th scope="row"><?php echo $key ?></th>
-                <td><?php echo $hotel['name'] ?></td>
-                <td><?php echo $hotel['description'] ?></td>
-                <td><?php echo $parking ?></td>
-                <td><?php echo $hotel['vote'] ?></td>
-                <td class="text-center"><?php echo $hotel['distance_to_center'] ?></td>
+
+                if ($park === ""){
+                    $isPark = "";
+                } else {
+                    if ($parking === "Sì"){
+                        $isPark = "";
+                    } else {
+                        $isPark = "d-none";
+                    }
+                }
+
+                if($star === ""){
+                    $isStar = "";
+                } else {
+                    if($hotel['vote'] === intval($star)){
+                        $isStar = "";
+                    } else{
+                        $isStar = "d-none";
+                    };
+                };
+               ?> 
+               <tr class="<?php echo $isPark . ' ' . $isStar ?>">
+                    <th scope="row"><?php echo ++$key ?></th>
+                    <td><?php echo $hotel['name'] ?></td>
+                    <td><?php echo $hotel['description'] ?></td>
+                    <td><?php echo $parking ?></td>
+                    <td><?php echo $hotel['vote'] ?></td>
+                    <td class="text-center"><?php echo $hotel['distance_to_center'] ?></td>
                 </tr>
             <?php }?>    
         </tbody>
