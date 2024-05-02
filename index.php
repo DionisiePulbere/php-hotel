@@ -61,6 +61,38 @@ permetta di filtrare gli hotel che hanno un parcheggio.
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    
+<section>
+    <div class="container mt-5" >
+        <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">NOME</th>
+            <th scope="col">DESCRIZIONE</th>
+            <th scope="col">PARCHEGGIO</th>
+            <th scope="col">VOTO</th>
+            <th scope="col">DISTANZA DAL CENTRO (KM)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($hotels as $key => $hotel){
+                 if($hotel['parking']){
+                    $parking = 'Sì';
+                } else {
+                    $parking = 'No';
+                }
+               ?> <tr>
+                <th scope="row"><?php echo $key ?></th>
+                <td><?php echo $hotel['name'] ?></td>
+                <td><?php echo $hotel['description'] ?></td>
+                <td><?php echo $parking ?></td>
+                <td><?php echo $hotel['vote'] ?></td>
+                <td class="text-center"><?php echo $hotel['distance_to_center'] ?></td>
+                </tr>
+            <?php }?>    
+        </tbody>
+        </table>
+    </div>
+</section>
 </body>
 </html>
