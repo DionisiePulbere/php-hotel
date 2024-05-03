@@ -69,42 +69,42 @@ permetta di filtrare gli hotel che hanno un parcheggio.
             <div class="d-flex align-items-center">
                 <span>Filtri:</span> 
                 <div class="form-check form-switch mx-3">
-                    <input class="form-check-input" type="checkbox" role="switch" name="park" id="flexSwitchCheckDefault">
+                    <input class="form-check-input" <?php echo $park ? 'checked' : ''; ?> type="checkbox" role="switch" name="park" id="flexSwitchCheckDefault">
                     <label class="form-check-label" for="flexSwitchCheckDefault">Parcheggio</label>
                 </div>
                 <span>Stelle:</span>
                 <div class="form-check mx-1">
-                    <input class="form-check-input" type="radio" value="" name="star" id="Default" checked>
+                    <input class="form-check-input" type="radio" value="" name="star" id="Default" <?php echo $star === "" ? 'checked' : "" ; ?>>
                     <label class="form-check-label" for="Default">
                         N/D
                     </label>
                 </div>
                 <div class="form-check mx-1">
-                    <input class="form-check-input" type="radio" value="1" name="star" id="onestar">
+                    <input class="form-check-input" type="radio" value="1" name="star" id="onestar" <?php echo $star === "1" ? 'checked' : "" ; ?> >
                     <label class="form-check-label" for="onestar">
                         1
                     </label>
                 </div>
                 <div class="form-check mx-1">
-                    <input class="form-check-input" type="radio" value="2" name="star" id="twostar" >
+                    <input class="form-check-input" type="radio" value="2" name="star" id="twostar" <?php echo $star === "2" ? 'checked' : "" ; ?>>
                     <label class="form-check-label" for="twostar">
                         2
                     </label>
                 </div>
                 <div class="form-check mx-1">
-                    <input class="form-check-input" type="radio" value="3" name="star" id="threestar">
+                    <input class="form-check-input" type="radio" value="3" name="star" id="threestar" <?php echo $star === "3" ? 'checked' : "" ; ?>>
                     <label class="form-check-label" for="threestar">
                         3
                     </label>
                 </div>
                 <div class="form-check mx-1">
-                    <input class="form-check-input" type="radio" value="4" name="star" id="fourstar" >
+                    <input class="form-check-input" type="radio" value="4" name="star" id="fourstar" <?php echo $star === "4" ? 'checked' : "" ; ?>>
                     <label class="form-check-label" for="fourstar">
                         4
                     </label>
                 </div>
                 <div class="form-check mx-1">
-                    <input class="form-check-input" type="radio" value="5" name="star" id="fivestar">
+                    <input class="form-check-input" type="radio" value="5" name="star" id="fivestar" <?php echo $star === "5" ? 'checked' : "" ; ?>>
                     <label class="form-check-label" for="fivestar">
                         5
                     </label>
